@@ -1,10 +1,13 @@
 import React , { Component} from 'react';
-import City from '../components/city';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import City from '../components/city';
 
 class CityList extends Component{
 
-   list() => {
+   renderlist() {
         return this.props.cities.map( (city) => {
               return <City city={city} key={city.address}/>
           }
@@ -15,11 +18,19 @@ class CityList extends Component{
   render(){
 
     return(
-      <div className="">
-        { list() }
-      </div>
+
+        <ul className="list-group cities">
+          { this.renderlist() }
+        </ul>
+
       );
   }
 }
 
-export default CityList;
+function mapStateToProps(state) {
+  return {
+    cities: state.cities
+  };
+}
+
+export default connect(mapStateToProps)(CityList);
