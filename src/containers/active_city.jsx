@@ -11,8 +11,6 @@ const ActiveCity = (props) => {
       );
     }
 
-
-
 const url = `https://kitt.lewagon.com/placeholder/cities/${props.activeCity.slug}`;
 
 return (
