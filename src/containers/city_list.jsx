@@ -7,24 +7,21 @@ import City from '../components/city';
 
 class CityList extends Component{
 
-   renderlist() {
-        return this.props.cities.map( (city) => {
-              return <City city={city} key={city.address}/>
-          }
-        )
-      }
-
+   renderList() {
+    return this.props.cities.map((city) => {
+      return (
+        <City key={city.name} city={city} />
+      );
+    });
+  };
 
   render(){
-
     return(
-
         <ul className="list-group cities">
-          { this.renderlist() }
+          { this.renderList() }
         </ul>
-
       );
-  }
+  };
 }
 
 function mapStateToProps(state) {
